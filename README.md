@@ -24,15 +24,12 @@ The recognition results are represented by the color of the bounding boxes.
 
 ## How to use
 
-### A. Quick Start in Colab (Recommended)
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/192ZJrRC8NxVAkowNWnMhkO7_q1uzkzS7?usp=sharing)
-
-### B. Run on the host machine
+### A. Run on the host machine
 
 #### Step1. Installation
 ```
-git clone https://github.com/jdyjjj/All-in-One-Gait.git
-cd All-in-One-Gait
+git clone https://github.com/ssb03/aiog_gait_system.git
+cd aiog_gait_system
 pip install -r requirements.txt
 pip install yolox
 ```
@@ -61,7 +58,7 @@ checkpoints
 ##### Get the checkpoint of gait model
 
 ```
-cd All-in-One-Gait/OpenGait/demo/checkpoints
+cd aiog_gait_system/OpenGait/demo/checkpoints
 mkdir gait_model
 cd gait_model
 wget https://github.com/ShiqiYu/OpenGait/releases/download/v2.0/pretrained_grew_gaitbase.zip
@@ -71,7 +68,7 @@ unzip -j pretrained_grew_gaitbase.zip
 
 ##### Get the checkpoint of tracking model
 ```
-cd All-in-One-Gait/OpenGait/demo/checkpoints/bytetrack_model
+cd aiog_gait_system/OpenGait/demo/checkpoints/bytetrack_model
 pip install --upgrade --no-cache-dir gdown
 gdown https://drive.google.com/uc?id=1P4mY0Yyd3PPTybgZkjMYhFri88nTmJX5
 ```
@@ -82,7 +79,7 @@ Alternatively, you can manually download the checkpoint file and put it into the
 
 ##### Get the checkpoint of segment model
 ```
-cd All-in-One-Gait/OpenGait/demo/checkpoints
+cd aiog_gait_system/OpenGait/demo/checkpoints
 mkdir seg_model
 cd seg_model
 wget https://paddleseg.bj.bcebos.com/dygraph/pp_humanseg_v2/human_pp_humansegv2_mobile_192x192_inference_model_with_softmax.zip
@@ -91,19 +88,19 @@ unzip human_pp_humansegv2_mobile_192x192_inference_model_with_softmax.zip
 
 #### Step3. Run demo
 ```
-cd All-in-One-Gait/OpenGait
+cd aiog_gait_system/OpenGait
 python demo/libs/main.py
 ```
 
 All-in-One-Gait mainly consists of three processes, i.e., pedestrian tracking, segmentation, and recognition. 
 In the `main.py`, you need to give two video as inputs and specify one as the gallery and other one as the probe to obtain the recognized results. 
 <!-- In 1main.py, you need to select two video inputs and specify one as the gallery and one as the probe to obtain the recognized results.  -->
-The return results will be written into the path of `All-in-One-Gait/OpenGait/demo/output/Outputvideos/track_vis/{timestamp}` in default.
+The return results will be written into the path of `aiog_gait_system/OpenGait/demo/output/Outputvideos/track_vis/{timestamp}` in default.
 
 #### Step4. See the result
 
 ```
-cd All-in-One-Gait/OpenGait/demo/output
+cd aiog_gait_system/OpenGait/demo/output
 
 output
    └——————GaitFeatures: This stores the corresponding gait features
